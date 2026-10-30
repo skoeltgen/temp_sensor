@@ -1,5 +1,5 @@
 # Step-by-Step Setup
-## Requirements
+## Requirements for Raspberry Pi OS
 ### Installing git:
 sudo apt install git
 
@@ -24,3 +24,4 @@ EOF
 sudo apt update
 
 sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt upgrade
