@@ -5,8 +5,7 @@ services:
     container_name: influxdb3-core
     image: influxdb:3-core
     restart: unless-stopped
-    networks: 
-      - backend
+    network: backend
     expose:
       - '8181'
     command:
@@ -27,8 +26,7 @@ services:
   mariadb:
     image: mariadb
     restart: unless-stopped
-    networks: 
-      - backend
+    network: backend
     environment:
       MARIADB_ROOT_PASSWORD: example
 
@@ -36,14 +34,6 @@ services:
     image: grafana/grafana-enterprise
     container_name: grafana
     restart: unless-stopped
-    networks:
-      - backend
-      - frontend
-    depends_on: 
-      - influxdb3-core
-      - mariadb
+    network: backend
     ports:
       - '3000:3000'
-networks:
-  backend:
-  frontend:
