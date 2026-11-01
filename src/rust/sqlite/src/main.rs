@@ -14,7 +14,7 @@ fn main() {
 	let mut query = "SELECT name FROM sqlite_master WHERE type='table';";
 
 
-    let mut init = False;
+    let mut init = false;
 
     for state in connection
 		.prepare(query)
@@ -23,7 +23,7 @@ fn main() {
         if state.unwrap()//State 
             .contains("rust_measurement")
         {
-            init = True;
+            init = true;
         }
     }
 
@@ -32,7 +32,7 @@ fn main() {
 		connection.execute(query).unwrap();
 	}
 
-    while True {
+    loop {
         let now: DateTime<Utc> = Utc::now();
 	    let timestamp = now.to_rfc3339_opts(SecondsFormat::Secs, false);
 
